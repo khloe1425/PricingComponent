@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+}
+
+:root {
+  /* ### Primary */
+
+  /* (Full Slider Bar) */
+  --soft-cyan: hsl(174, 77%, 80%);
+  /* Slider Backround */
+  --strong-cyan: hsl(174, 86%, 45%);
+  /* Discount Background */
+  --light-grayish-red: hsl(14, 92%, 95%);
+  /* Discount Text */
+  --light-red: hsl(15, 100%, 70%);
+  /* CTA Text */
+  --pale-blue: hsl(226, 100%, 87%);
+
+  /* ### Neutral */
+
+  /* Pricing Component Background */
+  --white: hsl(0, 0%, 100%);
+  /* Main Background */
+  --very-pale-blue: hsl(230, 100%, 99%);
+  /* Empty Slider Bar */
+  --light-grayish-blue: hsl(224, 65%, 95%);
+  /* Toggle Background */
+  --light-grayish-blue: hsl(223, 50%, 87%);
+  /* Text */
+  --grayish-blue: hsl(225, 20%, 60%);
+  /* Text & CTA Background */
+  --dark-desaturated-blue: hsl(227, 35%, 25%);
+}
+.main {
+  background: url(../img/bg-pattern.png);
+  background-size: cover;
+  background-color: var(--very-pale-blue);
+}
+.title {
+  background-image: url(../img/pattern-circles.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 100px 0;
+}
+.title p {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 5px;
+}
+.title span {
+  color: var(--grayish-blue);
+  font-size: 14px;
+}
+
+.content_top {
+  background-color: var(--white);
+  padding: 40px;
+}
+.content_top .label {
+  font-size: 12px;
+  color: var(--grayish-blue);
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.range {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.range__slider {
+  width: 85%;
+}
+
+.range__value {
+  padding: 30px 0;
+}
+span {
+  color: var(--grayish-blue);
+}
+.spanValue {
+  font-size: 30px;
+  font-weight: 800;
+  color: black;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.form-group label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.form-group span {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3c3b3b;
+}
+
+.range__slider label {
+  margin-bottom: 10px;
+}
+
+.range__slider [type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 8px;
+  border-radius: 6px;
+  background: #f1f1f1;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* custom thumb */
+.range__slider [type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: url(../img/icon-slider.png), var(--strong-cyan);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+
+.range__slider [type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 10px 30px 1px rgba(0, 255, 221, 0.986);
+}
+
+.range__slider [type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: url(../img/icon-slider.png), var(--strong-cyan);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+
+.range__slider [type="range"]::-moz-range-thumb:hover {
+  box-shadow: 0 0 5px 1px rgb(0, 255, 221);
+}
+
+/* remove border */
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+  border: 0;
+}
+
+.billing {
+  display: flex;
+}
+.billing span {
+  font-size: 13px;
+}
+.form-check {
+  margin: 0 25px 0 50px;
+}
+.form-switch {
+  padding: 0;
+  position: relative;
+}
+
+.form-switch .form-check-input {
+  height: 25px;
+  width: 50px;
+  position: absolute;
+  top:-5px;
+}
+.form-check-input:checked{
+  background-color: var(--strong-cyan);
+  border: none;
+} 
+  
+.billing p {
+  color: var(--light-red);
+  background-color: var(--light-grayish-red);
+  font-size: 12px;
+  margin-left: 5px;
+  border-radius: 40%;
+  padding: 2px 4px;
+}
+
+.content-bot{
+  background-color: var(--white);
+  border-top: 1px solid var() ;
+}
+
+@media screen and (min-width: 320px) {
+  .content .container {
+  }
+}
