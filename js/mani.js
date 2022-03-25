@@ -35,17 +35,17 @@ class Slider {
         (this.options.max - this.options.min)) *
       100;
     return (
-      "background: linear-gradient(to right, hsl(174, 77%, 80%) " +
+      "background: linear-gradient(to right, hsl(174, 77%, 80%), hsl(174, 86%, 45%) " +
       percentage +
-      "%, #d3edff " +
+      "%, hsl(223, 50%, 87%) " +
       percentage +
-      "%, #dee1e2 100%)"
+      "%, hsl(224, 65%, 95%) 100%)"
     );
-    //   return 'background: linear-gradient(to right, white, hsl(174, 77%, 80%) ' + percentage + '%, #d3edff ' + percentage + '%, #dee1e2 100%)'
+  
   }
 
   updateSlider(newValue) {
-    this.valueElement.innerHTML = this.asMoney(this.rangeElement.value);
+    this.valueElement.innerHTML = this.asMoney(this.rangeElement.value)+".00";
     this.rangeElement.style = this.generateBackground(this.rangeElement.value);
   }
 }
@@ -54,11 +54,11 @@ let rangeElement = document.querySelector('.range [type="range"]');
 let valueElement = document.querySelector(".range .range__value .spanValue");
 
 let options = {
-  min: 2000,
-  max: 75000,
-  cur: 37500,
+  min: 8,
+  max: 24,
+  cur: 16,
 };
-
+console.log( document.querySelector('.range [type="range"]').value);
 if (rangeElement) {
   let slider = new Slider(rangeElement, valueElement, options);
 
