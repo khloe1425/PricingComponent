@@ -19,10 +19,7 @@ class Slider {
 
   // Format the money
   asMoney(value) {
-    return (
-      "$" +
-      parseFloat(value).toLocaleString("en-US", { maximumFractionDigits: 2 })
-    );
+    return value;
   }
 
   generateBackground(rangeElement) {
@@ -41,11 +38,15 @@ class Slider {
       percentage +
       "%, hsl(224, 65%, 95%) 100%)"
     );
-  
   }
 
   updateSlider(newValue) {
-    this.valueElement.innerHTML = this.asMoney(this.rangeElement.value)+".00";
+    let x = Number(this.asMoney(this.rangeElement.value));
+    let string = document.querySelector(
+      ".range .range__value .spanTime"
+    ).innerHTML;
+    string != " / month" ? (x = x * 10) : {};
+    this.valueElement.innerHTML = "$" + x + ".00";
     this.rangeElement.style = this.generateBackground(this.rangeElement.value);
   }
 }
@@ -58,9 +59,35 @@ let options = {
   max: 24,
   cur: 16,
 };
-console.log( document.querySelector('.range [type="range"]').value);
+
 if (rangeElement) {
   let slider = new Slider(rangeElement, valueElement, options);
 
   slider.init();
 }
+
+getNumer = (string) => {
+  let number = string.replace(/[^0-9]/g, "");
+  return number;
+};
+
+onchangeSelector = () => {
+  let num = getNumer(
+    document.querySelector(".range .range__value .spanValue").innerHTML
+  );
+  num /= 100;
+  let string = document.querySelector(
+    ".range .range__value .spanTime"
+  ).innerHTML;
+  if (string == " / month") {
+    document.querySelector(".range .range__value .spanTime").innerHTML =
+      " / year";
+    document.querySelector(".range .range__value .spanValue").innerHTML =
+      "$" + num * 10 + ".00";
+  } else {
+    document.querySelector(".range .range__value .spanTime").innerHTML =
+      " / month";
+    document.querySelector(".range .range__value .spanValue").innerHTML =
+      "$" + num / 10 + ".00";
+  }
+};

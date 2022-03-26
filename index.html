@@ -19,7 +19,7 @@
 <body>
     <div class="background_head"></div>
     <div class="main container-fluid">
-        
+
         <div class="title text-center">
             <p>Simple, traffic-based pricing</p>
             <span>Sign-up for our 30-day trial.<br />No credit card required.</span>
@@ -27,21 +27,29 @@
         <div class="content ">
             <div class="container">
                 <div class="content_top text-center">
-                    <p class="label">100K PAGEVIEWS</p>
                     <form class="range">
-                        <div class="form-group range__slider">
-                            <input type="range" min="8" max="24" value="16" step="1">
-                        </div>
+                        <div class="grid-container">
 
-                        <div class="range__value">
-                            <span class="spanValue"></span><span> / month</span>
+                            <div class="label">
+                                <p>100K PAGEVIEWS</p>
+                            </div>
+                            <div class="range__value">
+                                <span class="spanValue"></span><span class="spanTime"> / month</span>
+                            </div>
+
+                            <div class=" form-group range__slider">
+                                <input type="range" min="8" max="24" value="16" step="1">
+                            </div>
                         </div>
                         <div class="billing">
-                            <span>Monthly Billing</span>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                            <div class="billing_left">
+                                <span>Monthly Billing</span>
                             </div>
-                            <div class="billing">
+
+                            <div class="form-check form-switch billing_mid">
+                                <input class="form-check-input" onchange="onchangeSelector()" value="on" type="checkbox" id="flexSwitchCheckDefault">
+                            </div>
+                            <div class="d-flex billing_right">
                                 <span>Yearly Billing</span>
                                 <p>-25%</p>
                             </div>
