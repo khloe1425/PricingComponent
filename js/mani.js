@@ -66,28 +66,24 @@ if (rangeElement) {
   slider.init();
 }
 
+let spanValue = document.querySelector(".range .range__value .spanTime");
+
 getNumer = (string) => {
   let number = string.replace(/[^0-9]/g, "");
   return number;
 };
 
 onchangeSelector = () => {
-  let num = getNumer(
-    document.querySelector(".range .range__value .spanValue").innerHTML
-  );
+  let num = getNumer(valueElement.innerHTML);
   num /= 100;
-  let string = document.querySelector(
-    ".range .range__value .spanTime"
-  ).innerHTML;
+  let string = spanValue.innerHTML;
   if (string == " / month") {
-    document.querySelector(".range .range__value .spanTime").innerHTML =
+    spanValue.innerHTML =
       " / year";
-    document.querySelector(".range .range__value .spanValue").innerHTML =
-      "$" + num * 10 + ".00";
+    valueElement.innerHTML = "$" + num * 10 + ".00";
   } else {
-    document.querySelector(".range .range__value .spanTime").innerHTML =
+    spanValue.innerHTML =
       " / month";
-    document.querySelector(".range .range__value .spanValue").innerHTML =
-      "$" + num / 10 + ".00";
+    valueElement.innerHTML = "$" + num / 10 + ".00";
   }
 };
