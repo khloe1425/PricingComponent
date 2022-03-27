@@ -47,7 +47,7 @@ body {
   padding-bottom: 100px;
 }
 .background_head {
-  width: 100%;
+  min-width: 100%;
   height: 400px;
   z-index: -1;
   position: absolute;
@@ -70,7 +70,7 @@ body {
 }
 .title span {
   color: var(--grayish-blue);
-  font-size: 14px;
+  font-size: 12px;
 }
 .content {
   padding-bottom: 100px;
@@ -79,9 +79,11 @@ body {
 .content_top {
   background-color: var(--white);
   max-width: 450px;
+
   margin: auto;
   padding-top: 30px;
   border-radius: 5px 5px 0 0;
+  box-shadow: 0px -20px 50px 0px var(--light-grayish-blue);
 }
 .grid-container {
   display: grid;
@@ -115,6 +117,9 @@ body {
 
 .range__value {
   grid-area: range__value;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 span {
   color: var(--grayish-blue);
@@ -123,6 +128,9 @@ span {
   font-size: 30px;
   font-weight: 800;
   color: black;
+}
+.spanTime {
+  padding: 0 5px;
 }
 
 .form-group {
@@ -209,7 +217,6 @@ input::-moz-focus-outer {
 
 .billing {
   display: flex;
-  justify-content: space-around;
   align-items: center;
   width: 100%;
   padding: 20px;
@@ -227,6 +234,8 @@ input::-moz-focus-outer {
 .billing_left,
 .billing_right {
   width: 40%;
+  align-items: center;
+  justify-content: center;
 }
 .billing_mid {
   width: 20%;
@@ -246,7 +255,7 @@ input::-moz-focus-outer {
   width: 47px;
   cursor: pointer;
   transition: all 0.5s;
-  transform: translateX(35%);
+  transform: translateX(75%);
 }
 
 .form-check-input:hover {
@@ -259,27 +268,35 @@ input::-moz-focus-outer {
   border: none;
 }
 
-.content-bot {
+.content_bot {
   background-color: var(--white);
   border-top: 1px solid var(--light-grayish-blue);
   max-width: 450px;
+
   margin: auto;
   padding: 30px 0 20px 0;
   border-radius: 0 0 5px 5px;
+  box-shadow: 0px 20px 50px 0px var(--light-grayish-blue);
 }
 
-.dislay_flex_col {
+.dislay_flex_col_l {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
 }
-.dislay_flex_col span {
+.dislay_flex_col_r {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.dislay_flex_col_l span {
   position: relative;
   margin: 5px 0;
   font-size: 12px;
 }
-.dislay_flex_col span::after {
+.dislay_flex_col_l span::after {
   position: absolute;
   content: url(../img/icon-check.png);
   top: 0;
@@ -343,9 +360,17 @@ button:hover {
       "range__slider range__slider range__slider range__slider"
       "range__value range__value range__value range__value";
   }
+  .col_12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
 }
 /* Iphone ngang*/
 @media screen and (min-width: 1024px) {
+  .dislay_flex_col_l {
+    padding-left: 50px;
+    align-items: flex-start;
+  }
 }
 /*Ipad*/
 @media screen and (min-width: 768px) {
@@ -354,14 +379,43 @@ button:hover {
       "label label range__value range__value"
       "range__slider range__slider range__slider range__slider";
   }
+  .col_lg_6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  .dislay_flex_col_l {
+    padding-left: 50px;
+    align-items: flex-start;
+  }
 }
 /*Ipad ngang*/
 @media screen and (min-width: 1024px) {
-  .container .content_top .range .flex {
-    flex-direction: column;
-    align-items: center;
+  .content_bot,
+  .content_top {
+    max-width: 550px;
   }
+  .label,
+  .dislay_flex_col_l span,
+  .dislay_flex_col_r span,
+  .billing span,
+  .title span {
+    font-size: 14px;
+  }
+  .content_bot {
+    padding: 20px 0;
+  }
+  
 }
 /*destop*/
 @media screen and (min-width: 1199px) {
+  .label,
+  .spanTime {
+    font-size: 16px;
+  }
+  .title p {
+    font-size: 24px;
+  }
+  .spanValue {
+    font-size: 32px;
+  }
 }
